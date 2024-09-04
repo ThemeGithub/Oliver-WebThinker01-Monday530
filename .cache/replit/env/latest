@@ -1,0 +1,53 @@
+declare -gx HOME=/home/runner
+declare -gx REPLIT_PID1_VERSION=0.0.0-64bb781
+declare -gx REPLIT_PID1_FLAG_REPLIT_RTLD_LOADER=1
+declare -gx NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+declare -gx NIX_PATH=nixpkgs=/home/runner/.nix-defexpr/channels/nixpkgs-stable-23_11:/home/runner/.nix-defexpr/channels
+declare -gx USER=runner
+declare -gx GIT_ASKPASS=replit-git-askpass
+declare -gx REPLIT_RTLD_LOADER=1
+declare -gx REPL_OWNER_ID=12699799
+read -r _new_path <<< "/nix/store/zrjvcj10w16j156damybcdvbdysmxhl6-pid1/bin:/nix/store/kf9qvd1cfmwlaa8b87p6zsn5w6wysqki-replit-runtime-path/bin:/home/runner/.nix-profile/bin:/home/runner/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+#PATH=/nix/store/zrjvcj10w16j156damybcdvbdysmxhl6-pid1/bin:/nix/store/kf9qvd1cfmwlaa8b87p6zsn5w6wysqki-replit-runtime-path/bin:/home/runner/.nix-profile/bin:/home/runner/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+if [ -e "/run/replit/env/last" ]; then read -r _last_path < <(\grep '^#PATH=' /run/replit/env/last | cut -f 2 -d =); fi
+_user_components="$(\tr : $'\n' <<< "${PATH:-}" |\grep -xv -f <(\tr : $'\n' <<< "${_last_path}") |\tr $'\n' :)"
+declare -gx PATH="${_user_components}${_new_path}"
+declare -gx LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+declare -gx REPL_IDENTITY=v2.public.Q2lRd01qZ3daRGhtTVMxak1EQXhMVFJsTlRRdFlqVm1ZeTAyTldVNE9ETXhORFJoT1dNU0NrOXNhWFpsY2t4cGJqZ2FJRTlzYVhabGNpMVhaV0pVYUdsdWEyVnlNUzFUZEhWa1pXNTBjeTFEYjNCNUlpUXdNamd3WkRobU1TMWpNREF4TFRSbE5UUXRZalZtWXkwMk5XVTRPRE14TkRSaE9XTTRsNUdIQmxvV0NnZHFZVzVsZDJGNUVndHBiblJsY21GamRHbDJaUT09mQgGqHKKngi_hdJ52fbJ5HbcPng2PTdQtrghRQGh2nax9CFVjgP79y1eP8TgvqavsG_dTzsBT8ZX7-U3azVRCQ.R0FFaUJtTnZibTFoYmhLV0NIWXlMbkIxWW14cFl5NVJNbVF6VTFjME1WWkhaREJhTVd4U1pFVjNlbGx0YUc1VFZrNUZVVmR3TVdGVk9YQk5hMHB2VWtaT00yUklWa2hSVjJoMlVUQmtRbFpYUmt0YU1qbHlWRlZTU2s1Rk1VaFZWRkpoWVd0V01GZFljRUprTURGVVRVUkNZVlpHVlhkVVJtUktUVlp3ZEZSWVVrOWhiRnB6VkRCU2JtVnJNVlZWVkVKYVZrZDRjVkl5WkROVk1FNXlUMWhPYUZkR2NITlpNblEwWTBkS2NWb3lSa05XUjJ4WllURnNhbEl3Wkc1aE1teERUVzVDYjFsdE1WZE5NV3haWVRKR1JWVXlPVTFaVm1NeFRVWndXVk50YUZwTk1VcDNXa2N4Vm1GVk5WaGpNMnhOWW10SmVGZFhNVFJqUm13MVRraGtWazFGTlhwWFZ6RmhWMFpPVjJKRk9WWk5NVWw2V1ZWa1UwMXRWbkZSV0dSWVZsaFNNVlF3YUVOTmF6VlZZVWN4VjFOR2NGbFZNVlpIWkVkU1dGcEhlRmRXTVhCMFdWUktibVF6TmxWdFRETndWUzFOYjJKdmNrRmhVMVp1V1ZwdFpYVnhMVnBYT1ZWT2RrUnJWRlJrYTNCMVZqWnNSSFJxUTI5emNUTTJabDltYnpoT2JEVnZNbFY0VVZFd2EweDNkbGhFY0ZwblIzTm9iVlZWWTI1blZTNVNNRVpHWVZWS2RGUnVXbWxpVkVadldXMW9UVmxyUm5WWFdHeE5ZbXRKZUZkWE1UUmpSbXcxVGxaS1RtSldTVEpXVkVaclRVZFdkRk5zV2xSaWJrSlhWbTB4TkZVeFVuSlZiVVpPVm01Q1YxVXlkRTlXUmxwWllVVldWbVZyU25KVmFrRXhVMVpHY2xOc1drNVNiSEJUVm0xd1QxbFhVbGRpTTJoVFlsZG9VMVpxU205a1ZsWllaRWQwYVdKRk5WaFphMVpQVm0xS1ZXSkZWbFpoYTBwSVdrZDRjMVpzU25WU2JFcFhWbGhDU2xZeWNFTmpNV1J6VW14b2FGTkdjRk5VVldSVFVURmFSMXBGWkZKaVZWcEpWMnRWZUZVd01YUlZhM1JYVFZaYVZGVlVTa3BrTVZKeVlVWktWMkV4Y0haV1ZscHJZakpLYzFSdVNtbFRSVnBZV1cxMGQxUXhiRmRWYkdST1RWaENTRmRyVmpCaGF6RnlWMnhzVjFKdGFGaFdSRVpoWkVkV1NXTkdaRmRpVmtwSlZrWlNTMVF5VFhsVGFscFdZWHBzV0ZSWGVFdGlNVmw1VFZSU1ZFMXJXa2RVVmxaclZrZEtSbGRzV2xwV2VrVXdWMVphYzA1c1JsVlNiWEJwVWxoQ05sWkVSbGRaVjBWNVUyeHNWbFpGV2xkWmExcGhZMnh3U0dWRldteFNia0pHVmpJeGQyRkhSWGhqUnpsWFlXdGFWRlY2Ums1bFJscHpVMnhHVjFKRlNqTldNblJoVjIxT2RHTkZNVkJYUlRSNldrVldXazVXY0VWU1dGSnBZbFJXVVZRd1pHRlZiVXBZWVVSS1ZGSldjSGhXYTFaeVpFZFNSV0ZGY0dsaVZuQlJWMFJKZUZaVk1YUlplbEpxVjBoQ1JsVnJaRlpPUmxwRllrWlNhRTFXU2paWGJYaHZZbGRXY21KNlFsaFdWVEUyVjIxemQyVnNaRlpPV0VwVVZrZFNXVmRYYTNkT1ZrcHlWVzA1VDJGVVJreFVha2sxVWtWNGMxTllaRk5oTVhCdlZteFdkMDFHV2toT1YwWm9WakJ3VmxWdE1EVlhiVXBZVldwS1ZtRnJjRkJWTVZwUFpGWmtkRkpzVGxObGJXY3c
+declare -gx REPLIT_PID1_FLAG_NIXMODULES_BEFORE_REPLIT_NIX=1
+declare -gx __EGL_VENDOR_LIBRARY_FILENAMES=/nix/store/0lfnrz6nq5myv787cih78knzaqy9z9fc-mesa-23.1.9-drivers/share/glvnd/egl_vendor.d/50_mesa.json
+declare -gx PROMPT_DIRTRIM=2
+declare -gx REPLIT_SUBCLUSTER=interactive
+declare -gx SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+declare -gx LIBGL_DRIVERS_PATH=/nix/store/0lfnrz6nq5myv787cih78knzaqy9z9fc-mesa-23.1.9-drivers/lib/dri
+declare -gx REPL_IDENTITY_KEY=k2.secret.YjC8GBkJAHs0K1fFK8gb-CznyMWrTpjaswD8WTX0PyLRIKVt9Yhg1K3CF2_PTRgqfym_nx9O9YgCa6B5R9-SHQ
+declare -gx REPL_LANGUAGE=html
+declare -gx REPLIT_DB_URL=https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE3MjU1NDYwMTQsImlhdCI6MTcyNTQzNDQxNCwiZGF0YWJhc2VfaWQiOiIwMjgwZDhmMS1jMDAxLTRlNTQtYjVmYy02NWU4ODMxNDRhOWMifQ.jv6uC5fZ1502v5Iw-uz2Fdlnskrl73C8WWDOV-cLREk9m0Efvxd4_WNgiy3Xo_KqJo_7GfdHDHL94G9qf5bsIA
+declare -gx REPLIT_ENVIRONMENT=production
+declare -gx REPL_IMAGE=gcr.io/marine-cycle-160323/nix:bf8590a3e2f0a8b70b7ca175eeed9074dffbfca9
+declare -gx COLORTERM=truecolor
+declare -gx DENO_TLS_CA_STORE=system
+declare -gx LANG=en_US.UTF-8
+declare -gx REPL_PUBKEYS='{"crosis-ci":"7YlpcYh82oR9NSTtSYtR5jDL4onNzCGJGq6b+9CuZII=","crosis-ci:1":"7YlpcYh82oR9NSTtSYtR5jDL4onNzCGJGq6b+9CuZII=","crosis-ci:latest":"7YlpcYh82oR9NSTtSYtR5jDL4onNzCGJGq6b+9CuZII=","prod":"tGsjlu/BJvWTgvMaX7acuUb7AO1dXOrRiuk7y083RFE=","prod:1":"tGsjlu/BJvWTgvMaX7acuUb7AO1dXOrRiuk7y083RFE=","prod:2":"8uGN+vfszlnV93/HCSHlVLG0xddMlPkir1Ni4JKT4+w=","prod:3":"9+MCOSHQSQlcodXoot8dC8NLhc862nLkx1/VMsbY2h8=","prod:4":"8uGN+vfszlnV93/HCSHlVLG0xddMlPkir1Ni4JKT4+w=","prod:5":"9+MCOSHQSQlcodXoot8dC8NLhc862nLkx1/VMsbY2h8=","prod:latest":"tGsjlu/BJvWTgvMaX7acuUb7AO1dXOrRiuk7y083RFE=","vault-goval-token":"D5jJoMx1Ml54HM92NLgXl+MzptwDqbSsfyFG6f52g9E=","vault-goval-token:1":"D5jJoMx1Ml54HM92NLgXl+MzptwDqbSsfyFG6f52g9E=","vault-goval-token:latest":"D5jJoMx1Ml54HM92NLgXl+MzptwDqbSsfyFG6f52g9E="}'
+declare -gx DISPLAY=:0
+declare -gx REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+declare -gx REPL_SLUG=Oliver-WebThinker1-Students-Copy
+declare -gx XDG_DATA_HOME=/home/runner/Oliver-WebThinker1-Students-Copy/.local/share
+declare -gx NIX_PROFILES='/nix/var/nix/profiles/default /home/runner/.nix-profile'
+declare -gx REPL_ID=0280d8f1-c001-4e54-b5fc-65e883144a9c
+declare -gx REPL_HOME=/home/runner/Oliver-WebThinker1-Students-Copy
+declare -gx REPL_OWNER=OliverLin8
+declare -gx DOCKER_CONFIG=/home/runner/Oliver-WebThinker1-Students-Copy/.config/docker
+declare -gx NIXPKGS_ALLOW_UNFREE=1
+declare -gx REPLIT_CLI=/nix/store/vkliks0fg193gdxizgqmhycw95j027sy-pid1-0.0.1/bin/replit
+declare -gx REPLIT_RIPPKGS_INDICES=/nix/store/mfrw2kh7ppd5qmjwm5sj9c41lkh2hlij-rippkgs-indices
+declare -gx GIT_EDITOR=replit-git-editor
+declare -gx HOSTNAME=ffa2986f3d19
+declare -gx REPLIT_NIX_CHANNEL=stable-23_11
+declare -gx REPLIT_DEV_DOMAIN=0280d8f1-c001-4e54-b5fc-65e883144a9c-00-cu6y6i43cvb9.janeway.replit.dev
+declare -gx REPLIT_BASHRC=/nix/store/p7awxwdwkaxb0k2svvhlg5d3xwbir5gq-replit-bashrc/bashrc
+declare -gx XDG_CONFIG_HOME=/home/runner/Oliver-WebThinker1-Students-Copy/.config
+declare -gx XDG_CACHE_HOME=/home/runner/Oliver-WebThinker1-Students-Copy/.cache
+declare -gx NIX_PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
+declare -gx DIRENV_CONFIG=/etc/direnv
+declare -gx REPLIT_CLUSTER=janeway
