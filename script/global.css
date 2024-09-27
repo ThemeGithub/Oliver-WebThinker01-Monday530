@@ -5,3 +5,13 @@
 .rounded-6 { border-top-left-radius: 25%}
 .rounded-6 { border-bottom-right-radius: 25%}
 .rounded-6 { border-bottom-left-radius: 25%}
+
+h7, .h7 { font-size: 0.85rem; }
+h8, .h8 { font-size: 0.6rem; }
+h9, .h9 { font-size: 0.5rem; }
+h10, .h10 { font-size: 0.4rem; }
+h11, .h11 { font-size: 0.3rem; }
+h12, .h12 { font-size: 0.2rem; }
+h13, .h13 { font-size: 0.1rem; }
+h14, .h14 { font-size: 0.05rem; }
+h15, .h15 { font-size: 0.02rem; }
