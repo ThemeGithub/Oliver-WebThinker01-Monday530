@@ -55,8 +55,8 @@
 				<div class="row">
 					<div class="col p-3">
 						<label for="Fname">First Name<strong class="text-danger">*</strong></label>
-						<input type="text" id="Fname" class="form-control" placeholder="John"/>
-						<p id="firstNameError" class="text-danger d-none">Please Fill This Input</p>
+						<input type="text" id="fName" class="form-control" placeholder="John"/>
+						<p id="firstNameError" class="text-danger d-none">Please Fill This Input (Minimum 3 Characters)</p>
 					</div>
 					<div class="col p-3">
 						<label for="Lname">Last Name</label>
@@ -75,37 +75,49 @@
 				<div class="row p-3">
 					<label for="subject">Subject<strong class="text-danger">*</strong></label>
 					<input type="text" id="subject" class="form-control" placeholder="A question on how to add images in HTML">
+					<p id="subjectError" class="text-danger d-none">Please Fill This Input (Minimum 10 Characters)</p>
 				</div>
 				<div class="row p-3">
 					<label for="content">Content<strong class="text-danger">*</strong></label>
 					<textarea type="text" id="content" class="form-control" rows="8" placeholder="I have a question on how to add images in HTML."></textarea>
+					<p id="contentError" class="text-danger d-none">Please Fill This Input (Minimum 50 Characters)</p>
 				</div>
-				<!-- Label: Name*
-						 Text Input field -->
 
-				<!-- Label: Email Address*
-						 Email Input field -->
-
-				<!-- Label: Subject*
-						 Text Input field with placeholder text "Enquiry on how to code"-->
-
-				<!-- Label: Subject*
-						 Textarea field with the row attribute of value 5-->
 			</div>
 			<div>
 				<button type="button" class="btn btn-primary" onclick="buttonClick()">Submit</button>
 			</div>
 			<script>
 				const buttonClick = () => {
-					let firstNameLength = document.getElementById("Fname").value.length;
-					if (firstNameLength <= 2) {
-						document.getElementsById(fName).classList = "form-control is-invalid";
-						document.getElementsById(firstNameError).classList = "text-danger";
+					let firstNameLength = document.getElementById("fName").value.length;
+					let subjectLength = document.getElementById("subject").value.length;
+					let contentLength = document.getElementById("content").value.length;
+					if (firstNameLength < 3) {
+						document.getElementById("fName").classList = "form-control is-invalid";
+						document.getElementById("firstNameError").classList = "text-danger";
 					} else {
-						document.getElementsById(fName).classList = "form-control";
-						document.getElementsById(firstNameError).classList = "d-none text-danger";
+						document.getElementById("fName").classList = "form-control";
+						document.getElementById("firstNameError").classList = "d-none text-danger";
+					}
+
+					if (subjectLength < 10) {
+						document.getElementById("subject").classList = "form-control is-invalid";
+						document.getElementById("subjectError").classList = "text-danger";
+					} else {
+						document.getElementById("subject").classList = "form-control";
+						document.getElementById("subjectError").classList = "d-none text-danger";
+					}
+
+					if (contentLength < 50) {
+						document.getElementById("content").classList = "form-control is-invalid";
+						document.getElementById("contentError").classList = "text-danger";
+					} else {
+						document.getElementById("content").classList = "form-control";
+						document.getElementById("contentError").classList = "d-none text-danger";
 					}
 				}
+
+
 			</script>
 		</form>
 	</article>

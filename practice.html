@@ -12,15 +12,18 @@
     <div class="row">
       <label for="cNumber">Contact Number</label>
       <input class="form-control" type="number" id="cNumber" name="contactNumber" placeholder="98765432">
-      <div>Please give an 8-digit Contact Number</div>
-      <button type="button" onclick="validate" class="btn btn-success">Submit</button>
+      <div id="error" class="d-none text-danger">Please give an 8-digit Contact Number</div>
+      <button type="button" onclick="buttonClick()" class="btn btn-success">Submit</button>
     </div>
     <script>
-      if validate {
-        let num = document.getElementById(cNumber);
-        if num.value.length == 8 {
-          num.classList ="form-control";
-          
+      const buttonClick = () => {
+        let Length = document.getElementById("cNumber").value.length;
+        if (Length != 8) {
+          document.getElementById("cNumber").classList = "form-control is-invalid";
+          document.getElementById("error").classList = "text-danger";
+        } else {
+          document.getElementById("cNumber").classList = "form-control";
+          document.getElementById("error").classList = "d-none text-danger";
         }
       }
     </script>
