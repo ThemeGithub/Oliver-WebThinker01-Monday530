@@ -55,8 +55,8 @@
 				<div class="row">
 					<div class="col p-3">
 						<label for="Fname">First Name<strong class="text-danger">*</strong></label>
-						<input type="text" id="Fname" class="form-control is-invalid" placeholder="John"/>
-						<p id="firstNameErroe" class="text-danger d-none">Please Fill This Input</p>
+						<input type="text" id="Fname" class="form-control" placeholder="John"/>
+						<p id="firstNameError" class="text-danger d-none">Please Fill This Input</p>
 					</div>
 					<div class="col p-3">
 						<label for="Lname">Last Name</label>
@@ -92,7 +92,21 @@
 				<!-- Label: Subject*
 						 Textarea field with the row attribute of value 5-->
 			</div>
-			<!-- Code a blue "Send" button inside a <div> according to the criteria stated -->
+			<div>
+				<button type="button" class="btn btn-primary" onclick="buttonClick()">Submit</button>
+			</div>
+			<script>
+				const buttonClick = () => {
+					let firstNameLength = document.getElementById("Fname").value.length;
+					if (firstNameLength <= 2) {
+						document.getElementsById(fName).classList = "form-control is-invalid";
+						document.getElementsById(firstNameError).classList = "text-danger";
+					} else {
+						document.getElementsById(fName).classList = "form-control";
+						document.getElementsById(firstNameError).classList = "d-none text-danger";
+					}
+				}
+			</script>
 		</form>
 	</article>
 	<!-- End of coding region -->
