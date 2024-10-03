@@ -82,17 +82,19 @@
 					<textarea type="text" id="content" class="form-control" rows="8" placeholder="I have a question on how to add images in HTML."></textarea>
 					<p id="contentError" class="text-danger d-none">Please Fill This Input (Minimum 50 Characters)</p>
 				</div>
-				<h3 id="confirm d-none" class="lead d-none">Confirm Your Message! Click On the confirm button!</h3>
-				<h3 id="sent d-none" class="lead d-none">Message Sent!</h3>
+			<div>
+				<h3 id="confirmText" class="lead d-none">Confirm Your Message! Click On the confirm button!</h3>
+				<h3 id="sentText" class="lead d-none">Message Sent!</h3>
 			</div>
 			<div>
 				<button type="button" class="btn btn-primary p-1 mx-3" id="submit" onclick="buttonClick()">Submit</button>
 				<button type="button" class="btn btn-warning p-1 mx-3 d-none" id="cancel" onclick="cancel()">Cancel</button>
 				<button type="clear" class="btn btn-danger p-1 mx-3">Clear</button>
-				<button type="clear" class="btn btn-success p-1 mx-3 d-none" id="confirm" onclick="confirm()">Confirm</button>
+				<button type="button" class="btn btn-success p-1 mx-3 d-none" id="confirm" onclick="submit()">Confirm</button>
 			</div>
 			<script>
 				const buttonClick = () => {
+					document.getElementById("sentText").classList = "d-none lead";
 					let firstNameLength = document.getElementById("fName").value.length;
 					let subjectLength = document.getElementById("subject").value.length;
 					let contentLength = document.getElementById("content").value.length;
@@ -123,10 +125,22 @@
 						document.getElementById("cancel").classList = "btn btn-warning p-1 mx-3";
 						document.getElementById("confirm").classList = "btn btn-success p-1 mx-3";
 						document.getElementById("submit").classList = "d-none btn btn-primary p-1 mx-3";
+						document.getElementById("confirmText").classList = "lead";
 					}
 				}
-
-
+				const cancel = () => {
+					document.getElementById("cancel").classList = "d-none btn btn-warning p-1 mx-3";
+					document.getElementById("confirm").classList = "d-none btn btn-success p-1 mx-3";
+					document.getElementById("submit").classList = "btn btn-primary p-1 mx-3";
+					document.getElementById("confirmText").classList = "d-none lead";
+				}
+				const submit = () => {
+					document.getElementById("cancel").classList = "d-none btn btn-warning p-1 mx-3";
+					document.getElementById("confirm").classList = "d-none btn btn-success p-1 mx-3";
+					document.getElementById("submit").classList = "btn btn-primary p-1 mx-3";
+					document.getElementById("confirmText").classList = "d-none lead";
+					document.getElementById("sentText").classList = "lead";
+				}
 			</script>
 		</form>
 	</article>
