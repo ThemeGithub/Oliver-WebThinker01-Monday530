@@ -88,9 +88,9 @@
 			</div>
 			<div>
 				<button type="button" class="btn btn-primary p-1 mx-3" id="submit" onclick="buttonClick()">Submit</button>
-				<button type="button" class="btn btn-warning p-1 mx-3 d-none" id="cancel" onclick="cancel()">Cancel</button>
+				<button type="button" class="btn btn-warning p-1 mx-3 d-none" id="cancel" onclick="cancelClick()">Cancel</button>
 				<button type="clear" class="btn btn-danger p-1 mx-3">Clear</button>
-				<button type="button" class="btn btn-success p-1 mx-3 d-none" id="confirm" onclick="submit()">Confirm</button>
+				<button type="button" class="btn btn-success p-1 mx-3 d-none" id="confirm" onclick="submitClick()">Confirm</button>
 			</div>
 			<script>
 				const buttonClick = () => {
@@ -128,13 +128,13 @@
 						document.getElementById("confirmText").classList = "lead";
 					}
 				}
-				const cancel = () => {
+				const cancelClick = () => {
 					document.getElementById("cancel").classList = "d-none btn btn-warning p-1 mx-3";
 					document.getElementById("confirm").classList = "d-none btn btn-success p-1 mx-3";
 					document.getElementById("submit").classList = "btn btn-primary p-1 mx-3";
 					document.getElementById("confirmText").classList = "d-none lead";
 				}
-				const submit = () => {
+				const submitClick = () => {
 					document.getElementById("cancel").classList = "d-none btn btn-warning p-1 mx-3";
 					document.getElementById("confirm").classList = "d-none btn btn-success p-1 mx-3";
 					document.getElementById("submit").classList = "btn btn-primary p-1 mx-3";
