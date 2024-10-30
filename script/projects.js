@@ -23,6 +23,7 @@ const update = () => {
   ctx.fill();
   ctx.closePath();
 
+  
   if (x + dx > canvas.width - dotSize || x + dx < dotSize) {
     dx = dx * -1;
   }
