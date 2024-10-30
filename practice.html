@@ -9,62 +9,7 @@
     </style>
   </head>
   <body>
-    <canvas id="board" width="800" height="600" class="border border-dark">
 
-    </canvas>
-    <script>
-      const canvas = document.getElementById("board");
-      let context = canvas.getContext("2d");
-      // console.log(canvas);
-
-      // context.beginPath();
-      // context.lineWidth = 10;
-      // context.strokeStyle = "red";
-      // context.fillStyle = "red";
-      // context.arc(500,300,100,0, 2 * Math.PI);
-      // context.stroke();
-      // context.fill();
-
-      // let gradient = context.createRadialGradient(0, 0, 0, 800, 600, 360);
-      // gradient.addColorStop(0, "rgb(255, 255, 255)");
-      // gradient.addColorStop(1, "rgb(0, 0, 0)");
-      // context.fillStyle = gradient;
-      // context.fillRect(0, 0, 800, 600);
-
-      // console.log(context);
-
-      let dx = 2;
-      let dy = 2;
-      let x = canvas.width / 2;
-      let y = canvas.height / 2;
-
-      let dotSize = 50;
-
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
-
-      while (true) {
-        if (x == dotSize || x == canvas.width - dotSize) {
-          x = x * -1;
-        }
-        if (y == dotSize || y == canvas.height - dotSize) {
-          y = y * -1;
-        }
-
-        context.fillStyle = "green"
-        context.beginPath();
-        context.lineWidth = dotSize;
-        context.moveTo(x, y);
-        context.lineTo(x, y);
-        context.stroke();
-        
-        context.fillStyle = "white"
-        context.fillRect(0, 0, canvas.height, canvas.width);
-        
-        let x = x + dx;
-        let y = y + dy;
-      }
-    </script>
     <ul>
       <li>item 1</li>
       <li>item 2</li>
